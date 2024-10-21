@@ -1,0 +1,79 @@
+name: Merge
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+        - uses: actions/cache@v3
+          with:
+            path: ./node_modules
+            key: ${{ github.sha }}
+
+
+        - uses: pnpm/action-setup@v2
+          with:
+            version: 8
+        - name: Set up Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+            cache: 'pnpm'
+
+        - name: install
+          run: pnpm install
+
+  TypeScript:
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ github.sha }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: typeScript
+        run: |
+          pnpm tsc
+
+  ESLint:
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ github.sha }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: eslint
+        run: |
+          pnpm lint:eslint
+
+  Test:
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ github.sha }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: test
+        run: |
+          pnpm test:ci
