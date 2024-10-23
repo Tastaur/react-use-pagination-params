@@ -4,9 +4,7 @@ import { SetSearchParams } from './types';
 
 
 export const useSearchParams = (): [URLSearchParams, SetSearchParams] => {
-  const [searchParams, setSearchParamsState] = useState<URLSearchParams>(() => {
-    return new URLSearchParams(window.location.search);
-  });
+  const [searchParams, setSearchParamsState] = useState<URLSearchParams>(new URLSearchParams(window.location.search));
 
   const setSearchParams: SetSearchParams = (newParams) => {
     setSearchParamsState((prevSearchParams) => {
@@ -15,7 +13,7 @@ export const useSearchParams = (): [URLSearchParams, SetSearchParams] => {
         params = newParams(new URLSearchParams(prevSearchParams));
       } else {
         Object.entries(newParams).forEach(([key, value]) => {
-          if (null === value || value === undefined) {
+          if (null === value || value === undefined || '' === value) {
             params.delete(key);
           } else {
             params.set(key, String(value));
