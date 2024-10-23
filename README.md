@@ -7,7 +7,14 @@ A simple React library for managing pagination through the URL
 ### usePaginationParams()
 
 ```typescript
-usePaginationParams(args? : { limit? : number, offset? : number }) => void
+usePaginationParams(args? : { limit? : number, offset? : number }) => {
+        limit: number, 
+        offset: number,
+        setLimit: (limit: number) => void,
+        setOffset: (offset: number) => void,
+        setParams: SetSearchParams,
+        params: URLSearchParams,
+}
 ```
 
 | Parameter | Type     | Required? | Default value | Description    |
