@@ -21,10 +21,10 @@
   "typings": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tastaur/react-use-query-pagination"
+    "url": "https://github.com/Tastaur/react-use-pagination-params"
   },
   "bugs": {
-    "url": "https://github.com/tastaur/react-use-query-pagination/issues"
+    "url": "https://github.com/Tastaur/react-use-pagination-params/issues"
   },
   "scripts": {
     "build:cjs": "tsc",
