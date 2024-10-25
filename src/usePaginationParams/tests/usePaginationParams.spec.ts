@@ -15,7 +15,6 @@ describe('usePaginationParams test', () => {
     expect(result.current.limit).toEqual(5);
     expect(result.current.setLimit).toBeTypeOf('function');
     expect(result.current.setOffset).toBeTypeOf('function');
-    expect(result.current.setParams).toBeTypeOf('function');
   });
 
   it('should return defined params', () => {

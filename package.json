@@ -1,7 +1,7 @@
 {
   "name": "react-use-pagination-params",
   "description": "A simple React library for managing pagination through the URL",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "author": "@tastaur",

@@ -26,3 +26,4 @@ lib
 esm
 coverage
 reports
+.eslintcache

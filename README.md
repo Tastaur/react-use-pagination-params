@@ -12,8 +12,6 @@ usePaginationParams(args? : { limit? : number, offset? : number }) => {
         offset: number,
         setLimit: (limit: number) => void,
         setOffset: (offset: number) => void,
-        setParams: SetSearchParams,
-        params: URLSearchParams,
 }
 ```
 

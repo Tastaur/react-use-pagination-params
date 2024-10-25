@@ -42,7 +42,5 @@ export const usePaginationParams = (
     limit,
     setOffset,
     setLimit,
-    params,
-    setParams,
   };
 };
